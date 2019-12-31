@@ -1,0 +1,73 @@
+body {
+    background-color: #e6ecd9
+}
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.str {
+    border: solid 1px black;
+    width: 100%;
+    height: 90vh;
+    p {
+    height:100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    color: white;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    text-shadow: 1px 1px black;
+    }
+}
+
+
+$colors: #244F75, #60BFBF, #8C4B7E, #F8BB44,#F24B4B;
+
+
+@for $j from 1 through 5 {
+    .container_str:nth-of-type(#{$j}){
+        background-color: nth($colors, $j);
+    }
+}
+
+.str::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0.5;
+    -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+            transform: skew(30deg) scaleY(1) translate(0, 0);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+.container_str {
+    overflow: hidden;
+    width: 100%;
+    height: 90vh;
+    position: relative;
+
+}
+
+.str:hover::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0.1;
+    -webkit-transform: skew(0deg) scaleY(1) translate(0, 0);
+            transform: skew(0deg) scaleY(1) translate(0, 0);
+    transition: all 0.4s linear;
+    cursor: pointer;
+}
+
+
